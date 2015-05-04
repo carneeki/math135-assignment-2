@@ -17,37 +17,41 @@ speed of sound at $T=0$:
   f(0) &= 331.3\sqrt{1+\frac{0}{273.15}} \\
        &= 331.3 \label{eq:q3_t0}
 \end{align}
-
 Next we need the gradient at $T=0$, or, $\frac{df}{dT}$.
 \begin{align}
   f(T)
     &= 331.3\sqrt{1+\frac{T}{273.15}} \\
-  \frac{df}{dT} & \quad \text{product rule: $u'v + v'u$}
+  \frac{df}{dT} & \quad \text{product rule: $u'v + v'u$} \label{eq:q3_product}
   \intertext{Let}
   u &= 331.3 \\
   v &= \sqrt{1+\frac{T}{273.15}} \\
   \intertext{Such that}
   u' &= 0 \\
-  v' & \quad \text{chain rule, $a'(b(x)) \cdot b'(x)$}
+  v' & \quad \text{chain rule, $a'(b(x)) \cdot b'(x)$} \label{eq:q3_chain}
   \intertext{Let}
   a(x) &= \sqrt{x} \\
   b(x) &= 1 + \frac{x}{273.15}
   \intertext{Such that}
   a'(x) &= \frac{1}{2\sqrt{x}} \\
-  b'(x) &= \frac{1}{273.15} \quad \text{by quotient rule} \\
-  \intertext{Use in chain rule:}
+  b'(x) &= \frac{1}{273.15} \quad \text{by quotient rule} \label{eq:q3_quotient}
+  \intertext{Apply to chain rule from from \eqref{eq:q3_chain}}
   v' &= a'(b(T)) \cdot b'(T) \\
      &= \frac{1}{2\sqrt{1 + \frac{x}{273.15}}} \cdot \frac{1}{273.15}
-  \intertext{Apply to product rule:}
-  \frac{df}{dT} &= u'v + v'u \\
-  &= 0 + \frac{1}{2\sqrt{1 + \frac{T}{273.15}}} \cdot \frac{1}{273.15} \cdot 331.3 \\
-  \intertext{Evaluate the gradient at $T=0$ (because it makes a horrible square root go away)}
+  \intertext{Apply to product rule from \eqref{eq:q3_product}}
+  \frac{df}{dT} &= (u'v) + (v'u) \\
+  &= (0) + \left(\frac{1}{2\sqrt{1 + \frac{T}{273.15}}} \cdot \frac{1}{273.15} \cdot 331.3 \right) \\
+  \intertext{Evaluate the gradient at $T=0$ (because it makes a horrible square
+  root go away), and collect like terms}
   &= \frac{1}{2} \cdot \frac{331.3}{273.15} \\
   &\approx 0.60644\ldots
 \end{align}
-
-With gradient $\approx 0.606$ we can take the speed at 0\degree C (from
-\eqref{eq:q3_t0}) and add scale $T$ with this gradient:
+We can take the speed at 0\degree C (from \ref{eq:q3_t0}) and sum with $T$
+multiplied by the gradient as a scaling factor:
 \begin{align}
   f(T) &\approx 331.3 + T\cdot(0.60644)
 \end{align}
+Such that the speed of sound in dry air with temperature near 0\degree C is
+approximated by:\\
+\begin{center}
+  $f(T) \approx 331.3 + T\cdot(0.60644)$ metres$\cdot$s$^{-1}$.
+\end{center}
