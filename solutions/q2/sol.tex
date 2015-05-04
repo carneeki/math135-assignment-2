@@ -14,3 +14,83 @@ The function $\arcsinh$ is the inverse function of $\sinh$.
 \end{enumerate}
 
 \section{Solutions}
+\begin{enumerate}
+\item From question 1, part (f):
+\begin{align}
+  \sinh x &= \frac{1}{2}e^x - e^{-x} \\
+  \left(\sinh x\right)' &= \frac{1}{2} e^x + e^{-x} \\
+  &= \cosh x
+\end{align}
+
+Also from Q1, part (b) section(iii) and part (c): \\
+Given that $\left(\sinh x\right)' = \cosh x = \frac{1}{2} e^x + e^{-x}$ and
+that both $e^x$ and $e^{-x}$ are strictly positive, they will sum to a strictly
+positive number. Halving a positive number does not change its sign. Therefore
+$(\sinh x)'$ is strictly positive.
+The minimum of $\cosh x$ was shown to be 1 in Question 1, therefore, the
+derivitive is \emph{always} equal to or greater than 1.
+
+$\sinh x$ is injective because it is one-to-one and can be mapped back from a
+value in its range back to the original $x$ input by way of its inverse
+function, $\arcsinh x = \ln(x + \sqrt{1 +x^2})$.
+
+
+"What is the range of this function?" Unsure if asking for range of $\cosh x$
+or $\sinh x$, so have both: \\
+Range($\cosh x$): $x \in \mathbb{R} | x \geq 1$. \\
+Range($\sinh x$): $x \in \mathbb{R}$. \\
+
+\item Show $\cosh^2x - \sinh^2x =1$
+\begin{align}
+  \cosh^2x &= (\cosh x)(\cosh x) \\
+  \sinh^2x &= (\sinh x)(\sinh x)
+  \intertext{So}
+  1 &\stackrel{?}{=} \cosh^2x - \sinh^2x \\
+    &\stackrel{?}{=} (\cosh x)(\cosh x) - (\sinh x)(\sinh x) \\
+    &\stackrel{?}{=}
+      \left(\frac{e^x + e^{-x}}{2}\right)^{2}
+      - \left(\frac{e^x + e^{-x}}{2}\right)^{2} \\
+    &\stackrel{?}{=}
+      \left(\frac{e^{2x} +2 + e^{-2x}}{4}\right)
+      - \left(\frac{e^{2x} -2 + e^{-2x}}{4}\right) \\
+  4 &\stackrel{?}{=}
+      \left(e^{2x} +2 + e^{-2x}\right)
+      - \left(e^{2x} -2 + e^{-2x}\right) \\
+    &\stackrel{?}{=}
+      2 + 2 \\
+  4 &= 4
+\end{align}
+LHS = RHS \qedbitches
+
+\item Seek to differentiate $\arcsinh x$ using chain rule.
+\begin{align}
+  \left(\arcsinh x\right)' &= \left( \ln\left(x + \sqrt{1+x^2}\right) \right)'
+  \intertext{Let}
+  f &= \ln(x) \\
+  g &= x + \sqrt{1+x^2} \\
+  \intertext{Such that}
+  f' &= \frac{1}{x} \\
+  g' &= 1 + \left(\sqrt{1+x^2}\right)' \quad \text{Suddenly, a nested chain rule appears!} \label{eq:q2_nested}
+  \intertext{Let}
+  h(x) &= \sqrt{x} \\
+  j(x) &= 1+x^2
+  \intertext{Such that}
+  \left(\sqrt{1+x^2}\right)' &= ( h(j(x)) )' = h'(j(x)) \cdot j'(x) \\
+  h'(x) &= \frac{1}{2\sqrt{x}} \cdot j'(x) \\
+  j'(x) &= 2x
+  \intertext{So}
+  h'(j(x)) \cdot j'(x) &= \frac{1}{2\sqrt{1+x^2}} \cdot 2x \\
+  h'(j(x)) \cdot j'(x) &= \frac{x}{\sqrt{1+x^2}}
+  \intertext{Apply back in \eqref{eq:q2_nested}}
+  g' &= 1 + \frac{x}{\sqrt{1+x^2}}
+  \intertext{Apply this to original problem:}
+  \left( \ln\left(x + \sqrt{1+x^2}\right) \right)'
+    &= f'(g(x)) \cdot g'(x) \\
+    &= \frac{1}{x + \sqrt{1+x^2}} \cdot \left(1 + \frac{x}{\sqrt{1+x^2}}\right) \\
+  \intertext{TODO: some magic happens here... I know it happens because
+  Wolfram|Alpha confirmed the above line to equal the next line... which is the
+  final line!}
+    &= \frac{\left(1+\frac{x}{\sqrt{1+x^2}}\right)}{x+\sqrt{1+x^2}} \\
+    &= \frac{1}{\sqrt{x^2+1}}
+\end{align}\qedbitches
+\end{enumerate}
