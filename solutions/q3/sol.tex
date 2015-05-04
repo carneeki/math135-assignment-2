@@ -8,3 +8,46 @@ temperature in degrees Celsius. Find a linear function that approximates the
 speed of sound for temperatures near $0\degree$C.
 
 \section{Solutions}
+For a linear approximation, we need to know the gradient near $T=0$. In this
+case, the gradient represents the change in speed of sound in metres per second
+as the temperature changes. A handy point of reference will be to know how the
+speed of sound at $T=0$:
+\begin{align}
+  f(T) &= 331.3\sqrt{1+\frac{T}{273.15}} \\
+  f(0) &= 331.3\sqrt{1+\frac{0}{273.15}} \\
+       &= 331.3 \label{eq:q3_t0}
+\end{align}
+
+Next we need the gradient at $T=0$, or, $\frac{df}{dT}$.
+\begin{align}
+  f(T)
+    &= 331.3\sqrt{1+\frac{T}{273.15}} \\
+  \frac{df}{dT} & \quad \text{product rule: $u'v + v'u$}
+  \intertext{Let}
+  u &= 331.3 \\
+  v &= \sqrt{1+\frac{T}{273.15}} \\
+  \intertext{Such that}
+  u' &= 0 \\
+  v' & \quad \text{chain rule, $a'(b(x)) \cdot b'(x)$}
+  \intertext{Let}
+  a(x) &= \sqrt{x} \\
+  b(x) &= 1 + \frac{x}{273.15}
+  \intertext{Such that}
+  a'(x) &= \frac{1}{2\sqrt{x}} \\
+  b'(x) &= \frac{1}{273.15} \quad \text{by quotient rule} \\
+  \intertext{Use in chain rule:}
+  v' &= a'(b(T)) \cdot b'(T) \\
+     &= \frac{1}{2\sqrt{1 + \frac{x}{273.15}}} \cdot \frac{1}{273.15}
+  \intertext{Apply to product rule:}
+  \frac{df}{dT} &= u'v + v'u \\
+  &= 0 + \frac{1}{2\sqrt{1 + \frac{T}{273.15}}} \cdot \frac{1}{273.15} \cdot 331.3 \\
+  \intertext{Evaluate the gradient at $T=0$ (because it makes a horrible square root go away)}
+  &= \frac{1}{2} \cdot \frac{331.3}{273.15} \\
+  &\approx 0.60644\ldots
+\end{align}
+
+With gradient $\approx 0.606$ we can take the speed at 0\degree C (from
+\eqref{eq:q3_t0}) and add scale $T$ with this gradient:
+\begin{align}
+  f(T) &\approx 331.3 + T\cdot(0.60644)
+\end{align}
