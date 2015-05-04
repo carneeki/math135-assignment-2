@@ -33,12 +33,13 @@ Drysdale to the river. This yields two distances:
     &= \sqrt{1+x^2} + \sqrt{x^2 -8x +32}
 \end{align}
 Now we seek global minima of $p(x)$. Using Mathematica, $p(x)$ can be plotted
-using the code:\\
+(figure \ref{fig:plotq4_1}) using the code:\\
 \texttt{Plot[Sqrt[1 + x\^{}2] + Sqrt[32 - 8 x + x\^{}2], \{x, -2, 4\},PlotRange $\to$ \{0,10\}, ImageSize
 $\to$ Large]}.
 \begin{figure}[!h]
   \includegraphics[width=\linewidth]{solutions/q4/plot1.pdf}
   \caption{Plot of $p(x)=\sqrt{1+x^2} + \sqrt{x^2 -8x +32}$}
+  \label{fig:plotq4_1}
 \end{figure}\\
 The minima is somewhere near $x=1$ indicating around 1 mile is good guess, but
 a more precise answer can be found if we take find the derivative of $p(x)$,
