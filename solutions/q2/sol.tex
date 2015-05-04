@@ -87,10 +87,22 @@ LHS = RHS \qedbitches
   \left( \ln\left(x + \sqrt{1+x^2}\right) \right)'
     &= f'(g(x)) \cdot g'(x) \\
     &= \frac{1}{x + \sqrt{1+x^2}} \cdot \left(1 + \frac{x}{\sqrt{1+x^2}}\right) \\
-  \intertext{TODO: some magic happens here... I know it happens because
-  Wolfram|Alpha confirmed the above line to equal the next line... which is the
-  final line!}
-    &= \frac{\left(1+\frac{x}{\sqrt{1+x^2}}\right)}{x+\sqrt{1+x^2}} \\
+  \intertext{Multiply first term by 1 (diff of 2 squares)}
+    &= \frac{1}{x + \sqrt{1+x^2}} \cdot \frac{x-\sqrt{1+x^2}}{x-\sqrt{1+x^2}} \cdot \left(1 + \frac{x}{\sqrt{1+x^2}}\right) \\
+    &= \frac{x - \sqrt{1+x^2}}{x^2 - (1 +x^2)} \cdot \left(1 + \frac{x}{\sqrt{1+x^2}}\right)
+    \intertext{collect like terms}
+    &= \frac{x - \sqrt{1+x^2}}{x^2 - 1 -x^2)} \cdot \left(1 + \frac{x}{\sqrt{1+x^2}}\right) \\
+    &= \frac{x - \sqrt{1+x^2}}{-1} \cdot \left(1 + \frac{x}{\sqrt{1+x^2}}\right) \\
+    &= -\left(x - \sqrt{1+x^2}\right) \cdot \left(1 + \frac{x}{\sqrt{1+x^2}}\right) \\
+    &= \left(\sqrt{1+x^2}-x\right) \cdot \left(1 + \frac{x}{\sqrt{1+x^2}}\right) \\
+    &= \left(\sqrt{1+x^2}-x\right) + \frac{x\left(\sqrt{1+x^2}-x\right)}{\sqrt{1+x^2}} \\
+    &= \left(\sqrt{1+x^2}-x\right) + \frac{x\sqrt{1+x^2}-x^2}{\sqrt{1+x^2}}
+    \intertext{multiply by 1}
+    &= \left(\sqrt{1+x^2}-x\right)\frac{\sqrt{1+x^2}}{\sqrt{1+x^2}} + \frac{x\sqrt{1+x^2}-x^2}{\sqrt{1+x^2}} \\
+    &= \frac{\left(\left(1+x^2\right)-x\sqrt{1+x^2}\right)}{\sqrt{1+x^2}} + \frac{x\sqrt{1+x^2}-x^2}{\sqrt{1+x^2}} \\
+    \intertext{smoosh together over common denominator}
+    &= \frac{\left(1+x^2\right)-x\sqrt{1+x^2} + x\sqrt{1+x^2}-x^2}{\sqrt{1+x^2}} \\
+    \intertext{collect like terms and have a cold one}
     &= \frac{1}{\sqrt{x^2+1}}
 \end{align}\qedbitches
 \end{enumerate}
